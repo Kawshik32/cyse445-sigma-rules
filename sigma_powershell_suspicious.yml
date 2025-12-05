@@ -1,0 +1,17 @@
+title: Suspicious PowerShell With Encoded Command
+id: 445cyber-sigma-powershell-encoded
+status: experimental
+description: Detects PowerShell usage with encoded command, common in attacks
+author: <Your Name>
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    EventID: 4104
+    ScriptBlockText|contains: "-EncodedCommand"
+  condition: selection
+level: medium
+tags:
+  - attack.t1059.001
+  - 445cyber
